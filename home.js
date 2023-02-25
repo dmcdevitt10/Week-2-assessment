@@ -81,16 +81,20 @@ console.log(canWeDeliver(85205))
 
 // CODE HERE
 function canWeDeliverTwo(zipCode){
-    let eligible = deliveryAreaZipCodes.forEach((e) => {
+    let eligible = deliveryAreaZipCodes.forEach((e, i) => {
        if(e === zipCode){
-            console.log('You\'re in our delivery zone!')
-        }else{
+        console.log('You\'re in our delivery zone!')
+        }else if(e !== zipCode && i === deliveryAreaZipCodes.length - 1){
             console.log('Sorry, we can\'t deliver to that address')
+        }else if(e !== zipCode && i !== deliveryAreaZipCodes.length - 1){
+            return
         }
     })
     return eligible
 }
-canWeDeliverTwo(85213)
+
+
+canWeDeliverTwo(85204)
 // Got stuck on this one^
 
 
