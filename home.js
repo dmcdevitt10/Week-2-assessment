@@ -81,26 +81,23 @@ console.log(canWeDeliver(85205))
 
 // CODE HERE
 function canWeDeliverTwo(zipCode){
+    let zipCodeMatch = 0
     let eligible = deliveryAreaZipCodes.forEach((e, i) => {
-       if(e === zipCode){
-        console.log('You\'re in our delivery zone!')
-        }else if(e !== zipCode && i === deliveryAreaZipCodes.length - 1){
-            console.log('Sorry, we can\'t deliver to that address')
-        }else if(e !== zipCode && i !== deliveryAreaZipCodes.length - 1){
-            return
+        if(e === zipCode){
+          zipCodeMatch++
         }
     })
+    if(zipCodeMatch > 0){
+            console.log('You\'re in our delivery zone!')
+        }else{
+            console.log('Sorry, we can\'t deliver to that address')
+        }
     return eligible
 }
 
-
-canWeDeliverTwo(85204)
-// Got stuck on this one^
+canWeDeliverTwo(85213)
 
 
-
-
-// canWeDeliverTwo(85203)
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
