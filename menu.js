@@ -142,7 +142,6 @@ let foodArr = [
     
 ]
 
-
 //////////////////PROBLEM 4////////////////////
 /* 
     Let's filter the food objects according
@@ -204,14 +203,14 @@ console.log(filteredFood)
 
 //CODE HERE
 function filterByProperty(property, number, type){
-    let newArray = foodArr.filter((pizzaObj) =>{
+    let filteredArray = foodArr.filter((e, i) => {
         if(type === 'above'){
-            return pizzObj.property > number
-        }else{
-            return pizzaObj.property < number
+            return foodArr[i][property] > number
+        }else if(type === 'below'){
+            return foodArr[i][property] < number
         }
     })
-    return newArray
+    return filteredArray
 }
 
 // /*
@@ -222,7 +221,5 @@ function filterByProperty(property, number, type){
 // */
 
 // //CODE HERE
-let filtered = filterByProperty('rating', 7, 'below')
-console.log(filtered)
-// Got stuck on this one^
-
+let newPizzas = filterByProperty('popularity', 8, 'above')
+console.log(newPizzas)
